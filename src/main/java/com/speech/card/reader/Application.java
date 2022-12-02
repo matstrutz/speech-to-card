@@ -25,7 +25,7 @@ public class Application {
         TargetDataLine microphone;
         SourceDataLine speakers;
 
-        try (Model model = new Model("model");
+        try (Model model = new Model("src/main/resources/models/en");
              Recognizer recognizer = new Recognizer(model, 120000)) {
             try {
 
