@@ -1,14 +1,13 @@
 package com.speech.card.reader.feign;
 
+import com.speech.card.reader.config.FeignConfig;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
-
-@FeignClient(value = "scryfall-api", url = "https://api.scryfall.com/")
+@FeignClient(value = "scryfall-api", url = "https://api.scryfall.com", configuration = FeignConfig.class)
 public interface ScryfallFeign {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/cards/search?order=cmc&q=c%3Ared+pow%3D3", produces = "application/json")
-    List<Object> getCardsByFilters();
+    @GetMapping(value = "cards/multiverse/409574", consumes = MediaType.APPLICATION_JSON_VALUE)
+    Object getCardsByFilters();
 }
