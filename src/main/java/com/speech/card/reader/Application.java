@@ -53,12 +53,12 @@ public class Application {
                     speakers.write(b, 0, numBytesRead);
 
                     if (recognizer.acceptWaveForm(b, numBytesRead)) {
-                        System.out.println(recognizer.getResult());
+                        System.out.println("Test Result -> " + recognizer.getResult());
                     } else {
-                        System.out.println(recognizer.getPartialResult());
+                        System.out.println("Test Partial -> " + recognizer.getPartialResult());
                     }
                 }
-                System.out.println(recognizer.getFinalResult());
+                System.out.println("Test Final -> " + recognizer.getFinalResult());
                 speakers.drain();
                 speakers.close();
                 microphone.close();
