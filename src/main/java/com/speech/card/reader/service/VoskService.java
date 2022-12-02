@@ -1,6 +1,7 @@
-package com.speech.card.reader;
+package com.speech.card.reader.service;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.vosk.LibVosk;
 import org.vosk.LogLevel;
 import org.vosk.Model;
@@ -14,10 +15,11 @@ import javax.sound.sampled.TargetDataLine;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-@SpringBootApplication
-public class Application {
+@Service
+@RequiredArgsConstructor
+public class VoskService {
 
-    public static void main(String[] args) throws IOException {
+    public void speechReader() throws IOException {
         LibVosk.setLogLevel(LogLevel.DEBUG);
 
         AudioFormat format = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 60000, 16, 2, 4, 44100, false);
