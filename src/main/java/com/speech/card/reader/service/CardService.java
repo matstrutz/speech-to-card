@@ -11,6 +11,6 @@ public class CardService {
     private final ScryfallFeign feign;
 
     public void findCard(){
-        feign.getCardsByFilters();
+        feign.getExactCard("nicol b");
     }
 }
